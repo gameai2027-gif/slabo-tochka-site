@@ -6,96 +6,453 @@
   <title>Монтаж видеонаблюдения, ОПС, СКУД и электромонтажа | СлабоТочка</title>
   <meta name="description" content="Электромонтаж и слаботочные системы под ключ: видеонаблюдение, ОПС, СКУД, СКС, Wi-Fi, домофоны. Бесплатная консультация и расчёт стоимости. Заявка через WhatsApp, Telegram, MAX.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--dark:#101828;--blue:#1d4ed8;--green:#16a34a;--light:#f8fafc;--gray:#64748b;--white:#fff;--border:#e2e8f0}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Arial,Helvetica,sans-serif;color:var(--dark);background:var(--white);line-height:1.5}
-    .container{width:100%;max-width:1100px;margin:0 auto;padding:0 16px}
-    header{position:sticky;top:0;background:var(--white);border-bottom:1px solid var(--border);z-index:50}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
-    .logo{font-weight:bold;font-size:18px}
-    .header-actions{display:flex;gap:8px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;text-align:center;min-height:44px;border:none;cursor:pointer}
-    .btn-primary{background:var(--blue);color:var(--white)}
-    .btn-whatsapp{background:var(--green);color:var(--white)}
-    .btn-telegram{background:#229ed9;color:var(--white)}
-    .btn-max{background:#6d28d9;color:var(--white)}
-    .btn-call{background:var(--dark);color:var(--white)}
-    .hero{background:linear-gradient(180deg,#eff6ff 0%,var(--white) 100%);padding:56px 0}
-    h1{font-size:34px;line-height:1.2;margin-bottom:14px}
-    .hero p{font-size:18px;color:var(--gray);max-width:720px;margin-bottom:20px}
-    .hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-    .hero-note{font-size:14px;color:var(--gray)}
-    section{padding:56px 0}
-    h2{font-size:28px;margin-bottom:24px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--light);border:1px solid var(--border);border-radius:12px;padding:20px}
-    .card h3{font-size:18px;margin-bottom:8px}
-    .card p{color:var(--gray);font-size:15px}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .step{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px}
-    .step strong{display:block;margin-bottom:6px}
-    .form-section{background:var(--light)}
-    form{max-width:620px;margin:0 auto;background:var(--white);padding:24px;border-radius:14px;border:1px solid var(--border)}
-    label{display:block;font-weight:bold;margin-bottom:6px;font-size:14px}
-    input,select,textarea{width:100%;padding:12px;margin-bottom:16px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px}
-    .consent{display:flex;gap:8px;align-items:flex-start;font-weight:normal;font-size:13px;color:var(--gray);margin-bottom:16px}
-    .consent input{width:auto;margin-top:3px}
-    .form-note{font-size:13px;color:var(--gray);margin-top:12px}
-    .messenger-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .messenger-row .btn{flex:1 1 150px}
-    .mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--border);padding:8px;z-index:100}
-    .mobile-bar-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-    .mobile-bar .btn{padding:10px 4px;font-size:12px}
-    footer{background:var(--dark);color:var(--white);padding:32px 0 90px}
-    footer a{color:#93c5fd}
-    .success{display:none;background:#dcfce7;border:1px solid #86efac;color:#14532d;padding:14px;border-radius:8px;margin-top:16px}
-    @media(max-width:900px){.grid,.steps{grid-template-columns:1fr}h1{font-size:27px}h2{font-size:23px}.header-actions .btn-call{display:none}}
-    @media(max-width:700px){.mobile-bar{display:block}.hero{padding:36px 0}.hero-buttons .btn{flex:1 1 100%}}
+    :root {
+      --navy: #0B1F3A;
+      --blue: #1D4ED8;
+      --orange: #F59E0B;
+      --light: #F8FAFC;
+      --white: #FFFFFF;
+      --gray: #64748B;
+      --gray-light: #94A3B8;
+      --border: #E2E8F0;
+      --green: #16A34A;
+      --telegram: #229ED9;
+      --max: #6D28D9;
+      --shadow: 0 4px 20px rgba(11, 31, 58, 0.08);
+      --shadow-hover: 0 12px 32px rgba(11, 31, 58, 0.14);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    a { color: inherit; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 0;
+    }
+    .logo {
+      font-weight: 800; font-size: 20px; color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--blue); }
+    .header-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 20px; border-radius: 12px;
+      text-decoration: none; font-weight: 700; font-size: 14px;
+      text-align: center; min-height: 48px; border: none; cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary { background: var(--blue); color: var(--white); }
+    .btn-primary:hover { background: #1e40af; box-shadow: 0 6px 20px rgba(29,78,216,0.35); }
+    .btn-whatsapp { background: var(--green); color: var(--white); }
+    .btn-whatsapp:hover { background: #15803d; box-shadow: 0 6px 20px rgba(22,163,74,0.35); }
+    .btn-telegram { background: var(--telegram); color: var(--white); }
+    .btn-telegram:hover { background: #1a8bc4; }
+    .btn-max { background: var(--max); color: var(--white); }
+    .btn-max:hover { background: #5b21b6; }
+    .btn-call { background: var(--navy); color: var(--white); }
+    .btn-call:hover { background: #0a1929; }
+    .btn-outline {
+      background: transparent; color: var(--navy);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+    .btn-sm { padding: 10px 16px; min-height: 42px; font-size: 13px; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(145deg, #0B1F3A 0%, #132f54 50%, #0f2744 100%);
+      color: var(--white);
+      padding: 64px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(29,78,216,0.25) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(245,158,11,0.08) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px; align-items: center; position: relative;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px; padding: 8px 16px;
+      font-size: 13px; font-weight: 600; color: #93C5FD;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 38px; line-height: 1.18; font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .hero-lead {
+      font-size: 17px; color: #94A3B8; max-width: 520px;
+      margin-bottom: 28px; line-height: 1.55;
+    }
+    .hero-features {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-features li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 15px; font-weight: 500; color: #E2E8F0;
+    }
+    .hero-features svg {
+      width: 22px; height: 22px; flex-shrink: 0;
+      stroke: var(--orange); fill: none; stroke-width: 2;
+    }
+    .hero-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .hero-note { font-size: 13px; color: #64748B; }
+
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px; padding: 32px 28px;
+      backdrop-filter: blur(8px);
+      text-align: center;
+    }
+    .hero-card-icon {
+      width: 64px; height: 64px; margin: 0 auto 20px;
+      background: rgba(29,78,216,0.3); border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-card-icon svg { width: 32px; height: 32px; stroke: #93C5FD; fill: none; stroke-width: 1.8; }
+    .hero-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .hero-card p { font-size: 14px; color: #94A3B8; margin-bottom: 24px; }
+    .hero-card .btn { width: 100%; }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    h2 {
+      font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 12px; color: var(--navy);
+    }
+    .section-lead {
+      font-size: 16px; color: var(--gray); margin-bottom: 40px; max-width: 560px;
+    }
+
+    /* Cards grid */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: #EFF6FF; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .card-icon svg {
+      width: 24px; height: 24px; stroke: var(--blue); fill: none; stroke-width: 1.8;
+    }
+    .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .card p { color: var(--gray); font-size: 14px; line-height: 1.55; margin-bottom: 16px; }
+    .card-link {
+      font-size: 14px; font-weight: 700; color: var(--blue);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 4px;
+    }
+    .card-link:hover { color: #1e40af; }
+
+    /* Clients - lighter cards */
+    #klienty .card { background: var(--light); box-shadow: none; }
+    #klienty .card:hover { background: var(--white); box-shadow: var(--shadow); }
+
+    /* Steps */
+    .steps-wrap { position: relative; }
+    .steps {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute; top: 28px; left: 8%; right: 8%;
+      height: 2px; background: var(--border);
+      z-index: 0;
+    }
+    .step {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+      position: relative; z-index: 1;
+      box-shadow: var(--shadow);
+    }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--blue); color: var(--white);
+      font-weight: 800; font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .step strong { display: block; font-size: 14px; margin-bottom: 6px; }
+    .step span { font-size: 13px; color: var(--gray); line-height: 1.4; }
+
+    /* Trust block */
+    .trust { background: var(--light); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .trust-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
+    }
+    .trust-card svg {
+      width: 28px; height: 28px; stroke: var(--orange); fill: none; stroke-width: 1.8;
+      margin-bottom: 14px;
+    }
+    .trust-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .trust-card p { font-size: 14px; color: var(--gray); line-height: 1.5; }
+
+    /* Form */
+    .form-section { background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%); }
+    .form-wrap { max-width: 640px; margin: 0 auto; }
+    .form-wrap h2 { text-align: center; }
+    .form-wrap .section-lead { text-align: center; margin-left: auto; margin-right: auto; }
+    form {
+      background: var(--white);
+      padding: 36px 32px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-hover);
+    }
+    label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+    input, select, textarea {
+      width: 100%; padding: 13px 14px; margin-bottom: 18px;
+      border: 1.5px solid var(--border); border-radius: 10px;
+      font-size: 16px; font-family: inherit; color: var(--navy);
+      transition: border-color 0.15s;
+      background: var(--white);
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none; border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(29,78,216,0.12);
+    }
+    .consent {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-weight: 400; font-size: 13px; color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .consent input { width: auto; margin: 3px 0 0; flex-shrink: 0; }
+    .consent a { color: var(--blue); }
+    form .btn { width: 100%; font-size: 16px; min-height: 52px; }
+    .form-note { font-size: 13px; color: var(--gray); margin-top: 14px; text-align: center; }
+    .messenger-row {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 20px; justify-content: center;
+    }
+    .messenger-row .btn { flex: 1 1 140px; }
+    .success {
+      display: none; background: #DCFCE7; border: 1px solid #86EFAC;
+      color: #14532D; padding: 14px; border-radius: 10px; margin-top: 16px;
+      font-size: 14px; font-weight: 500;
+    }
+
+    /* FAQ */
+    #faq .card p { margin-bottom: 0; }
+
+    /* Footer */
+    footer {
+      background: var(--navy); color: #94A3B8;
+      padding: 48px 0 100px;
+    }
+    footer h2 { color: var(--white); font-size: 22px; margin-bottom: 20px; }
+    footer p { margin-bottom: 10px; font-size: 14px; }
+    footer a { color: #93C5FD; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Mobile bar */
+    .mobile-bar {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 8px 10px; z-index: 100;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    }
+    .mobile-bar-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .mobile-bar .btn { padding: 10px 4px; font-size: 11px; min-height: 44px; border-radius: 10px; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-card { max-width: 400px; }
+      .steps { grid-template-columns: repeat(3, 1fr); }
+      .steps::before { display: none; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      h2 { font-size: 26px; }
+      .hero h1 { font-size: 28px; }
+      .header-actions .btn-call { display: none; }
+      section { padding: 52px 0; }
+      form { padding: 28px 20px; }
+    }
+    @media (max-width: 600px) {
+      .mobile-bar { display: block; }
+      .hero { padding: 40px 0 48px; }
+      .hero-buttons .btn { flex: 1 1 100%; }
+      .steps { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .header-actions .btn-telegram,
+      .header-actions .btn-max { display: none; }
+      footer { padding-bottom: 100px; }
+    }
   </style>
 </head>
 <body>
 <header>
   <div class="container header-inner">
-    <div class="logo">СлабоТочка</div>
+    <div class="logo">Слабо<span>Точка</span></div>
     <nav class="header-actions" aria-label="Быстрая связь">
-      <a class="btn btn-whatsapp" href="https://wa.me/79000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." target="_blank" rel="noopener" aria-label="Написать в WhatsApp">WhatsApp</a>
-      <a class="btn btn-telegram" href="https://t.me/username" target="_blank" rel="noopener" aria-label="Написать в Telegram">Telegram</a>
-      <a class="btn btn-max" href="https://max.ru/u/example" target="_blank" rel="noopener" aria-label="Написать в MAX">MAX</a>
-      <a class="btn btn-call" href="tel:+79000000000" aria-label="Позвонить">Позвонить</a>
+      <a class="btn btn-whatsapp btn-sm" href="https://wa.me/79000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." target="_blank" rel="noopener" aria-label="Написать в WhatsApp">WhatsApp</a>
+      <a class="btn btn-telegram btn-sm" href="https://t.me/username" target="_blank" rel="noopener" aria-label="Написать в Telegram">Telegram</a>
+      <a class="btn btn-max btn-sm" href="https://max.ru/u/example" target="_blank" rel="noopener" aria-label="Написать в MAX">MAX</a>
+      <a class="btn btn-call btn-sm" href="tel:+79000000000" aria-label="Позвонить">Позвонить</a>
     </nav>
   </div>
 </header>
+
 <main>
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <h1>Монтаж видеонаблюдения, ОПС, СКУД и электромонтажа под ключ</h1>
-      <p>Электромонтаж и слаботочные системы для квартир, домов, офисов, магазинов, складов и других объектов. Бесплатная консультация и расчёт стоимости.</p>
-      <div class="hero-buttons">
-        <a class="btn btn-whatsapp" href="https://wa.me/79000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." target="_blank" rel="noopener">Рассчитать стоимость в WhatsApp</a>
-        <a class="btn btn-telegram" href="https://t.me/username" target="_blank" rel="noopener">Написать в Telegram</a>
-        <a class="btn btn-max" href="https://max.ru/u/example" target="_blank" rel="noopener">Написать в MAX</a>
-        <a class="btn btn-call" href="tel:+79000000000">Позвонить</a>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">Выезд на объект · Расчёт стоимости · Монтаж под ключ</div>
+          <h1>Монтаж видеонаблюдения, ОПС, СКУД и электромонтажа под ключ</h1>
+          <p class="hero-lead">Электромонтаж и слаботочные системы для квартир, домов, офисов, магазинов, складов и других объектов. Бесплатная консультация и расчёт стоимости.</p>
+          <ul class="hero-features">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Электромонтаж и щитовое оборудование
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              Видеонаблюдение с удалённым доступом
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              ОПС и системы контроля доступа
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+              СКС, сети и Wi-Fi
+            </li>
+          </ul>
+          <div class="hero-buttons">
+            <a class="btn btn-whatsapp" href="https://wa.me/79000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." target="_blank" rel="noopener">Рассчитать стоимость в WhatsApp</a>
+            <a class="btn btn-outline" href="https://t.me/username" target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,0.3)">Telegram</a>
+            <a class="btn btn-outline" href="https://max.ru/u/example" target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,0.3)">MAX</a>
+            <a class="btn btn-outline" href="tel:+79000000000" style="color:#fff;border-color:rgba(255,255,255,0.3)">Позвонить</a>
+          </div>
+          <p class="hero-note">Ответим в мессенджере в рабочее время. Работаем с видеонаблюдением, ОПС, СКУД, сетями, Wi-Fi, домофонами и электромонтажом.</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <h3>Бесплатный расчёт</h3>
+          <p>Опишите задачу — подготовим смету и предложим оптимальное решение для вашего объекта.</p>
+          <a class="btn btn-whatsapp" href="https://wa.me/79000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." target="_blank" rel="noopener">Написать в WhatsApp</a>
+        </div>
       </div>
-      <p class="hero-note">Ответим в мессенджере в рабочее время. Работаем с видеонаблюдением, ОПС, СКУД, сетями, Wi-Fi, домофонами и электромонтажом.</p>
     </div>
   </section>
+
+  <!-- SERVICES -->
   <section id="uslugi">
     <div class="container">
       <h2>Услуги</h2>
+      <p class="section-lead">Полный цикл работ: от консультации и сметы до монтажа и пусконаладки.</p>
       <div class="grid">
-        <article class="card"><h3>Электромонтаж</h3><p>Монтаж и замена проводки, розеток, выключателей, щитов, освещения и электрофурнитуры.</p></article>
-        <article class="card"><h3>Видеонаблюдение</h3><p>Подбор, монтаж и настройка камер, регистраторов и удалённого доступа для дома и бизнеса.</p></article>
-        <article class="card"><h3>ОПС</h3><p>Монтаж охранных и пожарных систем, датчиков, извещателей и систем оповещения.</p></article>
-        <article class="card"><h3>СКУД</h3><p>Системы контроля доступа: электронные замки, считыватели, контроллеры и турникеты.</p></article>
-        <article class="card"><h3>СКС, сети и Wi-Fi</h3><p>Прокладка кабельных сетей, монтаж интернет-розеток, настройка локальной сети и Wi-Fi.</p></article>
-        <article class="card"><h3>Домофония и обслуживание</h3><p>Монтаж аудио- и видеодомофонов, а также диагностика и обслуживание существующих систем.</p></article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h3>Электромонтаж</h3>
+          <p>Монтаж и замена проводки, розеток, выключателей, щитов, освещения и электрофурнитуры.</p>
+          <a class="card-link" href="#zayavka">Рассчитать →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+          <h3>Видеонаблюдение</h3>
+          <p>Подбор, монтаж и настройка камер, регистраторов и удалённого доступа для дома и бизнеса.</p>
+          <a class="card-link" href="#zayavka">Рассчитать →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+          <h3>ОПС</h3>
+          <p>Монтаж охранных и пожарных систем, датчиков, извещателей и систем оповещения.</p>
+          <a class="card-link" href="#zayavka">Рассчитать →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <h3>СКУД</h3>
+          <p>Системы контроля доступа: электронные замки, считыватели, контроллеры и турникеты.</p>
+          <a class="card-link" href="#zayavka">Рассчитать →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+          <h3>СКС, сети и Wi-Fi</h3>
+          <p>Прокладка кабельных сетей, монтаж интернет-розеток, настройка локальной сети и Wi-Fi.</p>
+          <a class="card-link" href="#zayavka">Рассчитать →</a>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></div>
+          <h3>Домофония и обслуживание</h3>
+          <p>Монтаж аудио- и видеодомофонов, а также диагностика и обслуживание существующих систем.</p>
+          <a class="card-link" href="#zayavka">Рассчитать →</a>
+        </article>
       </div>
     </div>
   </section>
+
+  <!-- CLIENTS -->
   <section id="klienty">
     <div class="container">
       <h2>Для кого мы работаем</h2>
+      <p class="section-lead">Работаем с частными и коммерческими объектами любой сложности.</p>
       <div class="grid">
         <article class="card"><h3>Квартиры и дома</h3><p>Видеонаблюдение, домофоны, Wi-Fi и электромонтаж.</p></article>
         <article class="card"><h3>Офисы</h3><p>СКУД, видеонаблюдение, локальные сети и ОПС.</p></article>
@@ -106,57 +463,99 @@
       </div>
     </div>
   </section>
+
+  <!-- HOW WE WORK -->
   <section id="kak-rabotaem">
     <div class="container">
       <h2>Как мы работаем</h2>
-      <div class="steps">
-        <div class="step"><strong>1. Заявка</strong>Оставьте заявку через форму, WhatsApp, Telegram, MAX или позвоните.</div>
-        <div class="step"><strong>2. Консультация</strong>Уточняем задачу, тип объекта и пожелания.</div>
-        <div class="step"><strong>3. Расчёт</strong>При необходимости выезжаем на объект и готовим смету.</div>
-        <div class="step"><strong>4. Монтаж</strong>Выполняем работы и пусконаладку.</div>
-        <div class="step"><strong>5. Сдача</strong>Показываем результат и объясняем работу системы.</div>
-        <div class="step"><strong>6. Поддержка</strong>Остаёмся на связи для консультаций и обслуживания.</div>
+      <p class="section-lead">Прозрачный процесс от заявки до сдачи объекта.</p>
+      <div class="steps-wrap">
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><strong>Заявка</strong><span>Оставьте заявку через форму, WhatsApp, Telegram, MAX или позвоните.</span></div>
+          <div class="step"><div class="step-num">2</div><strong>Консультация</strong><span>Уточняем задачу, тип объекта и пожелания.</span></div>
+          <div class="step"><div class="step-num">3</div><strong>Расчёт</strong><span>При необходимости выезжаем на объект и готовим смету.</span></div>
+          <div class="step"><div class="step-num">4</div><strong>Монтаж</strong><span>Выполняем работы и пусконаладку.</span></div>
+          <div class="step"><div class="step-num">5</div><strong>Сдача</strong><span>Показываем результат и объясняем работу системы.</span></div>
+          <div class="step"><div class="step-num">6</div><strong>Поддержка</strong><span>Остаёмся на связи для консультаций и обслуживания.</span></div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- TRUST -->
+  <section class="trust" id="pochemu">
+    <div class="container">
+      <h2>Почему выбирают нас</h2>
+      <p class="section-lead">Фокус на результате и удобстве для клиента.</p>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h3>Один подрядчик</h3>
+          <p>Один подрядчик для электрики и слаботочки — не нужно искать нескольких исполнителей.</p>
+        </div>
+        <div class="trust-card">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <h3>Понятная смета</h3>
+          <p>Понятная смета до начала работ — вы заранее знаете объём и стоимость.</p>
+        </div>
+        <div class="trust-card">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>Аккуратный монтаж</h3>
+          <p>Аккуратный монтаж и пусконаладка с проверкой всех систем.</p>
+        </div>
+        <div class="trust-card">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <h3>Поддержка после сдачи</h3>
+          <p>Поддержка после сдачи объекта — остаёмся на связи для консультаций.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
   <section class="form-section" id="zayavka">
     <div class="container">
-      <h2>Оставить заявку</h2>
-      <form id="lead-form">
-        <label for="name">Имя *</label>
-        <input id="name" name="name" type="text" autocomplete="name" required>
-        <label for="phone">Телефон *</label>
-        <input id="phone" name="phone" type="tel" autocomplete="tel" required>
-        <label for="object">Тип объекта *</label>
-        <select id="object" name="object" required>
-          <option value="">Выберите объект</option>
-          <option>Квартира</option><option>Дом</option><option>Офис</option><option>Магазин</option><option>Склад</option><option>Автосервис</option><option>Другое</option>
-        </select>
-        <label for="service">Нужная услуга *</label>
-        <select id="service" name="service" required>
-          <option value="">Выберите услугу</option>
-          <option>Видеонаблюдение</option><option>ОПС</option><option>СКУД</option><option>Электромонтаж</option><option>СКС, сети, Wi-Fi</option><option>Домофония</option><option>Обслуживание</option>
-        </select>
-        <label for="comment">Комментарий</label>
-        <textarea id="comment" name="comment" rows="3"></textarea>
-        <label class="consent" for="consent">
-          <input type="checkbox" id="consent" name="consent" required>
-          <span>Я даю согласие на обработку моих персональных данных (имя, номер телефона, сведения из заявки) в целях связи со мной и подготовки расчёта. <a href="privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>.</span>
-        </label>
-        <button class="btn btn-primary" type="submit">Получить расчёт в WhatsApp</button>
-        <p class="form-note">Нажимая кнопку, вы переходите в WhatsApp с подготовленным сообщением. Также можно написать в Telegram или MAX.</p>
-        <div class="success" id="form-success" role="status" aria-live="polite">Спасибо! Заявка подготовлена. Если WhatsApp не открылся, нажмите кнопку WhatsApp, Telegram или MAX.</div>
-      </form>
-      <div class="messenger-row">
-        <a class="btn btn-whatsapp" href="https://wa.me/79000000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." target="_blank" rel="noopener">Написать в WhatsApp</a>
-        <a class="btn btn-telegram" href="https://t.me/username" target="_blank" rel="noopener">Написать в Telegram</a>
-        <a class="btn btn-max" href="https://max.ru/u/example" target="_blank" rel="noopener">Написать в MAX</a>
+      <div class="form-wrap">
+        <h2>Получить расчёт за 1 шаг</h2>
+        <p class="section-lead">Заполните форму — мы подготовим сообщение для WhatsApp с вашими данными.</p>
+        <form id="lead-form">
+          <label for="name">Имя *</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <label for="phone">Телефон *</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+          <label for="object">Тип объекта *</label>
+          <select id="object" name="object" required>
+            <option value="">Выберите объект</option>
+            <option>Квартира</option><option>Дом</option><option>Офис</option><option>Магазин</option><option>Склад</option><option>Автосервис</option><option>Другое</option>
+          </select>
+          <label for="service">Нужная услуга *</label>
+          <select id="service" name="service" required>
+            <option value="">Выберите услугу</option>
+            <option>Видеонаблюдение</option><option>ОПС</option><option>СКУД</option><option>Электромонтаж</option><option>СКС, сети, Wi-Fi</option><option>Домофония</option><option>Обслуживание</option>
+          </select>
+          <label for="comment">Комментарий</label>
+          <textarea id="comment" name="comment" rows="3"></textarea>
+          <label class="consent" for="consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>Я даю согласие на обработку моих персональных данных (имя, номер телефона, сведения из заявки) в целях связи со мной и подготовки расчёта. <a href="privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>.</span>
+          </label>
+          <button class="btn btn-whatsapp" type="submit">Получить расчёт в WhatsApp</button>
+          <p class="form-note">Нажимая кнопку, вы переходите в WhatsApp с подготовленным сообщением. Также можно написать в Telegram или MAX.</p>
+          <div class="success" id="form-success" role="status" aria-live="polite">Спасибо! Заявка подготовлена. Если WhatsApp не открылся, нажмите кнопку WhatsApp, Telegram или MAX.</div>
+        </form>
+        <div class="messenger-row">
+          <a class="btn btn-telegram" href="https://t.me/username" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a class="btn btn-max" href="https://max.ru/u/example" target="_blank" rel="noopener">Написать в MAX</a>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- FAQ -->
   <section id="faq">
     <div class="container">
       <h2>Частые вопросы</h2>
+      <p class="section-lead">Ответы на популярные вопросы клиентов.</p>
       <div class="grid">
         <article class="card"><h3>Сколько стоит монтаж видеонаблюдения?</h3><p>Стоимость зависит от количества камер, объекта, кабельных трасс и оборудования. После уточнения задачи подготовим расчёт.</p></article>
         <article class="card"><h3>Выезжаете ли на объект?</h3><p>Да, при необходимости выполняем выезд для осмотра и подготовки сметы.</p></article>
@@ -168,6 +567,7 @@
     </div>
   </section>
 </main>
+
 <footer>
   <div class="container">
     <h2>Контакты</h2>
@@ -180,6 +580,7 @@
     <p>ИП СлабоТочка, ИНН 000000000000</p>
   </div>
 </footer>
+
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
     <a class="btn btn-call" href="tel:+79000000000" aria-label="Позвонить">Звонок</a>
@@ -188,6 +589,7 @@
     <a class="btn btn-max" href="https://max.ru/u/example" target="_blank" rel="noopener" aria-label="Написать в MAX">MAX</a>
   </div>
 </div>
+
 <script>
   const WHATSAPP_NUMBER = '79000000000';
   let isSending = false;
