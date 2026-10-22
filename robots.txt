@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /privacy.html
-Sitemap: https://[ДОМЕН]/sitemap.xml
+Sitemap: https://gameai2027-gif.github.io/slabo-tochka-site/sitemap.xml
